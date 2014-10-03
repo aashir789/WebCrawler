@@ -1,0 +1,498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"m",
+				"main	method (main)"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"fo",
+				"from"
+			],
+			[
+				"get",
+				"getVertexLocation"
+			],
+			[
+				"vert",
+				"vertexIndex"
+			],
+			[
+				"ve",
+				"vertexList"
+			],
+			[
+				"i",
+				"i"
+			],
+			[
+				"ret",
+				"returnArray"
+			],
+			[
+				"ma",
+				"maxVertices"
+			],
+			[
+				"num",
+				"numOfVertex"
+			],
+			[
+				"temp",
+				"tempx"
+			],
+			[
+				"nu",
+				"numOfNodes"
+			],
+			[
+				"in",
+				"inList"
+			],
+			[
+				"char",
+				"Char"
+			],
+			[
+				"s",
+				"s"
+			],
+			[
+				"boar",
+				"boardDimension"
+			],
+			[
+				"boad",
+				"boardArray"
+			],
+			[
+				"point",
+				"points"
+			],
+			[
+				"p",
+				"p	print"
+			],
+			[
+				"print",
+				"println"
+			],
+			[
+				"slop",
+				"slopeArray"
+			],
+			[
+				"new",
+				"newPoints"
+			],
+			[
+				"j",
+				"j"
+			],
+			[
+				"slope",
+				"slopeDifference"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"strin",
+				"toString"
+			],
+			[
+				"Slo",
+				"SLOPE_ORDER"
+			],
+			[
+				"dra",
+				"draw"
+			],
+			[
+				"dr",
+				"draw"
+			],
+			[
+				"d",
+				"draw"
+			],
+			[
+				"slep",
+				"slopeDifference"
+			],
+			[
+				"P",
+				"Point1"
+			],
+			[
+				"Sl",
+				"slopeTo"
+			],
+			[
+				"pu",
+				"public"
+			],
+			[
+				"fil",
+				"filename"
+			],
+			[
+				"prin",
+				"println"
+			],
+			[
+				"po",
+				"points"
+			],
+			[
+				"read",
+				"readInt"
+			],
+			[
+				"Std",
+				"StdOut"
+			],
+			[
+				"Perco",
+				"percolation"
+			],
+			[
+				"u",
+				"union"
+			],
+			[
+				"st",
+				"StdIn"
+			],
+			[
+				"o",
+				"out"
+			],
+			[
+				"bina",
+				"binarySearch1"
+			],
+			[
+				"n",
+				"new_last"
+			],
+			[
+				"do",
+				"dog1"
+			],
+			[
+				"pr",
+				"println"
+			],
+			[
+				"p3",
+				"p3_right"
+			],
+			[
+				"p2",
+				"p2_right"
+			],
+			[
+				"p1",
+				"p1_right"
+			],
+			[
+				"guess",
+				"guess1"
+			],
+			[
+				"gues",
+				"guess1"
+			],
+			[
+				"pl",
+				"player"
+			],
+			[
+				"review",
+				"review_marks"
+			],
+			[
+				"pro",
+				"programming"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 265.0,
+		"selected_items":
+		[
+			[
+				"fiel",
+				"File: Close All"
+			],
+			[
+				"File:cl",
+				"File: Close All"
+			],
+			[
+				"open",
+				"View: Toggle Open Files in Side Bar"
+			],
+			[
+				"new",
+				"File: New View into File"
+			],
+			[
+				"",
+				"Code Folding: Fold Tag Attributes"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 181.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/3/hw3_ans.txt",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/Extra/WebCrawler/data.txt",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/Extra/WebCrawler/webCrawler.txt",
+		"/C/Users/aashir/Desktop/main.java",
+		"/C/Users/aashir/Desktop/A.java",
+		"/C/Users/aashir/Desktop/B.java",
+		"/C/Users/aashir/Desktop/hibit.java",
+		"/C/Users/aashir/AppData/Roaming/SSH/temp/bits (1).c",
+		"/C/Users/aashir/AppData/Roaming/SSH/temp/bits.c",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/WebGames/templates/create.html",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/WebGames/templates/base.html",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/WebGames/templates/about.html",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/WebGames/main.py",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/1/src/edu/cmu/cs/cs214/hw1/graph/AdjacencyListGraph.java",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/WebGames/flaskScript",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-213/Labs/datalab-handout/datalab-handout/bits.c",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/0/src/edu/cmu/cs/cs214/hw0/Main.java",
+		"/C/Users/aashir/Desktop/java/Leet Code/reverseWords.java",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/0/src/edu/cmu/cs/cs214/hw0/friendGraph.java",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/0/src/edu/cmu/cs/cs214/hw0/Graph.java",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/15-214/agajjar/homework/0/src/edu/cmu/cs/cs214/hw0/List.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Deque/Deque.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Deque/myLinkedList.java",
+		"/C/Users/aashir/Desktop/java/Cracking the coding interview/isRotatedString.java",
+		"/C/Users/aashir/Desktop/java/Cracking the coding interview/rotateMatrix.java",
+		"/C/Users/aashir/Desktop/java/Cracking the coding interview/compressString.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/8puzzle/board.java",
+		"/C/Users/aashir/Desktop/java/Cracking the coding interview/isStringUnique.java",
+		"/C/Users/aashir/Desktop/CMU/Fall 14/08-600/HelloWorld.java",
+		"/C/Users/aashir/Desktop/java/Junk/test.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/Brute.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/Point.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/Fast.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/newFast.java",
+		"/C/Users/aashir/Desktop/java/.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/mynetworksetting.txt",
+		"/C/Users/aashir/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/aashir/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/aashir/AppData/Roaming/Sublime Text 3/Packages/User/JSON.sublime-settings",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/testPoint.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/PointPlotter.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Deque/RandomizedQueue.java",
+		"/C/Users/aashir/AppData/Roaming/Sublime Text 3/Packages/User/customJava.sublime-build",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/input6.txt",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/  location",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/[shell_cmd",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/[dir",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/  symbol",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Pattern Recognition/[path",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/Point.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/Brute.java",
+		"/C/Users/aashir/Desktop/java/Point.java",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/[path",
+		"/C/Users/aashir/Desktop/java/firstapp.java",
+		"/C/Users/aashir/Desktop/java/dog.java",
+		"/C/Users/aashir/Desktop/java/class hello.java",
+		"/C/Users/aashir/Desktop/java/firstapp",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/[shell_cmd",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/  location",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/  symbol",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/Usage",
+		"/C/Users/aashir/Desktop/java/Algorithms1/Patern Recognition/[dir",
+		"/C/Users/aashir/Desktop/java/Percolation.java",
+		"/C/Users/aashir/Desktop/java/HelloWorld.java",
+		"/C/Users/aashir/Desktop/java/percolateStats.java",
+		"/C/Users/aashir/Desktop/java/simpleDotCom",
+		"/C/Users/aashir/Desktop/java/binarySearch1.java",
+		"/C/Users/aashir/Desktop/java/UF.java",
+		"/C/Users/aashir/Desktop/java/randomCheck.java",
+		"/C/Users/aashir/Desktop/java/Usage",
+		"/C/Users/aashir/Desktop/java/binarySearch1",
+		"/C/Users/aashir/Desktop/java/[dir",
+		"/C/Users/aashir/Desktop/java/game_launcher.java",
+		"/C/Users/aashir/Desktop/java/player.java",
+		"/C/Users/aashir/Desktop/java/test_class.java",
+		"/C/Users/aashir/Desktop/java/guess_game.java",
+		"/C/Users/aashir/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/test_class.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/dog.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/  location",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/loopy.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/Exercise1b.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/app.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/firstapp.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/public class MyFirstApp {.java",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/javac",
+		"/C/Users/aashir/Desktop/CMU/Summer/Head First Java/Usage"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"NEW POST",
+			"newpoints",
+			"points[i].a",
+			"build",
+			"env",
+			"source",
+			"path",
+			"ignore",
+			"id",
+			"source",
+			"path",
+			"array"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": true,
+		"wrap": false
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "Main.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"Algorithms1\\Patern Recognition\\Point.java"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 190.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
