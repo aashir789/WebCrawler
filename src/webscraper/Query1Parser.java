@@ -24,13 +24,16 @@ public class Query1Parser extends PageParserTemplate {
 
     private StringBuilder parseResult;
     private int noOfItems;
+    private Query1Result finalResult;
 
-    public StringBuilder getParseResult(String myurl)  {
-	try {
-	    String url = myurl;
-
-	    parseResult = new StringBuilder();
-	   
+    
+    @Override
+    public Query1Result getParseResult(String[] urlarr) throws IOException  {
+	
+	    
+	    String url = urlarr[urlarr.length-1];
+	    this.parseResult = new StringBuilder();
+	    this.finalResult = new Query1Result();
 	    
 	    Document doc = Jsoup.connect(url).timeout(3000).get();
 
@@ -40,16 +43,16 @@ public class Query1Parser extends PageParserTemplate {
 
 	    super.noOfItems = productName.length;
 	    
+	    int totalItem = 16*(urlarr.length-1) + productName.length;
 	    
-	    // return null because we do not need additional info for query1
-	    return parseResult;
-
-	} catch (IOException e) {
-	    e.printStackTrace();
-	    return parseResult;
-	}
+	    this.finalResult.addNoOfItems(totalItem);
+	    
+	    return finalResult;
+	    
 
     }
+
+   
 
   
 

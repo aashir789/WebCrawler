@@ -1,6 +1,6 @@
 package webscraper;
 
-public class QueryResult1 extends Result {
+public class Query1Result extends Result {
     /*
      * Author: Aashir Gajjar
      * 

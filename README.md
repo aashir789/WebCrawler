@@ -19,3 +19,6 @@ The program uses the following assumptions:
 3. In order to make the program faster, its assumed that the items on the search page of walmart are always 16.
 
 
+PS: I would be more than happy to receive any type of feedback on the submission.
+
+

@@ -26,7 +26,7 @@ abstract public class PageParserTemplate {
     
     protected int noOfItems;
 
-    abstract public StringBuilder getParseResult(String myurl) ;
+    abstract public Result getParseResult(String []myurl) throws IOException, QueryPageOutOfBoundsException ;
 
     public int getNoOfItems() {
 	// check if the no is valid

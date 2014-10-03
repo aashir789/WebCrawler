@@ -46,12 +46,9 @@ public class WebCrawler {
 	if (query2Page != null) {
 
 	    this.queryPage = query2Page;
-	    this.FinalResult = new QueryResult2();
-	    this.FinalResult.setPageQuery(this.queryPage);
-	    this.parser = new Query2Parser();
+	    this.parser = new Query2Parser(this.queryPage);
 
 	} else {
-	    this.FinalResult = new QueryResult1();
 	    this.parser = new Query1Parser();
 	}
 
@@ -69,50 +66,8 @@ public class WebCrawler {
 	this.grabber = new LinkGrabber(this.currentURL);
 	this.allURLs = grabber.getURLs();
 
-	int totalPages = this.allURLs.length;
-	
-	
-	// check if the query is 1 or 2
-	
-	
-	if (this.parser instanceof Query2Parser) {
-
-	    if (this.queryPage > totalPages) {
-
-		throw new QueryPageOutOfBoundsException(this.queryPage,
-			totalPages);
-	    }
-
-	    String pageResult = this.parser.getParseResult(
-		    allURLs[this.queryPage - 1]).toString();
-
-	    this.FinalResult.addResult(this.queryPage, pageResult);
-
-	    int noOfItems = this.parser.getNoOfItems();
-
-	    // add the no of items in this page to the total no
-	    this.FinalResult.addNoOfItems(noOfItems);
-
-	}
-
-	else {
-
-	    // If the query is query1 for only the total no of pages
-	    // only check the last items on last page and
-
-	    System.out.print("\nParsing page " + totalPages + " ...");
-
-	    String pageResult = this.parser.getParseResult(
-		    allURLs[totalPages - 1]).toString();
-
-	    int iemsOnLastPage = this.parser.getNoOfItems();
-
-	    // the total items are 16*(totalPages-1) + items on last page
-	    int totaItems = 16 * (totalPages - 1) + iemsOnLastPage;
-
-	    this.FinalResult.addNoOfItems(totaItems);
-
-	}
+	// the type of instance takes care which getParseResult to call
+	FinalResult = this.parser.getParseResult(this.allURLs);
 
 	// prints the correct result according to the query
 	this.FinalResult.printResult();
@@ -140,6 +95,11 @@ public class WebCrawler {
 	try {
 
 	    // try to parse the last digit as an integer to check if its query2
+
+	     args = new String[2];
+	    args[0] = "camera";
+		    args[1]= "2";
+
 	    String query;
 	    Integer queryPage = null;
 	    try {

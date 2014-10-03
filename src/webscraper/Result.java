@@ -2,7 +2,7 @@ package webscraper;
 
 import java.util.HashMap;
 
-public class Result {
+abstract public class Result {
     /*
      * Author : Aashir Gajjar
      * 
@@ -34,6 +34,9 @@ public class Result {
 	this.pageQuery = i; 
     }
     
+    public int getPageQuery(){
+	return this.pageQuery;
+    }
     
     public void addResult(int key, String value){
 	
@@ -47,8 +50,6 @@ public class Result {
 	
     }
     
-    public void printResult(){
-	
-    }
+abstract public void printResult();
     
 }

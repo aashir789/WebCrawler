@@ -2,7 +2,7 @@ package webscraper;
 
 import java.util.HashMap;
 
-public class QueryResult2 extends Result {
+public class Query2Result extends Result {
     /*
      * Author: Aashir Gajjar
      * 
@@ -15,8 +15,9 @@ public class QueryResult2 extends Result {
     @Override
     public void printResult(){
 	HashMap<Integer,String> map = super.resultMap;
-	String resultString = map.get(super.pageQuery);
-	System.out.println("The total no of results are:" +this.totalItems);
+	int i= this.getPageQuery();
+	String resultString = map.get(i);
+	System.out.println("\nThe total no of results are:" +this.totalItems);
 	System.out.println("\nThe result of the query on page no "+super.pageQuery+" is:\n"+resultString);
 	
     }
