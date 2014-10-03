@@ -29,7 +29,7 @@ public class Query2Parser extends PageParserTemplate {
 
 	    parseResult = new StringBuilder();
 
-	    Document doc = Jsoup.connect(url).timeout(3000).get();
+	    Document doc = Jsoup.connect(url).timeout(2000).get();
 
 	    Elements productElements = doc.select("a.js-product-title");
 
@@ -58,10 +58,11 @@ public class Query2Parser extends PageParserTemplate {
 	    for (int k = 0; k < productName.length; k++) {
 
 		StringBuilder tempString = new StringBuilder();
-
+		
+		tempString.append("\n");
 		tempString.append("Product Name: ");
 		tempString.append(productName[k]);
-		tempString.append("\t");
+		tempString.append("\n");
 		tempString.append("Price: ");
 		tempString.append(productPrice[k]);
 		tempString.append("\n");

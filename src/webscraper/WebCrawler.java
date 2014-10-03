@@ -67,27 +67,37 @@ public class WebCrawler {
 	    this.grabber = new LinkGrabber(this.currentURL);
 	    this.allURLs = grabber.getURLs();
 
-	    // go over all the links/pages, parse the webpage and append the
-	    // result
-	    // from all the pages
+	    if (this.parser instanceof Query2Parser) {
 
-	    for (int i = 0; i < this.allURLs.length; i++) {
+		String pageResult = this.parser.getParseResult(
+			allURLs[this.queryPage - 1]).toString();
 
-		String pageResult = this.parser.getParseResult(allURLs[i])
-			.toString();
+		this.FinalResult.addResult(this.queryPage, pageResult);
 
 		int noOfItems = this.parser.getNoOfItems();
-
-		// add to the result obj if the page result is not null
-		if (pageResult != null) {
-
-		    // i+1 represents the page no
-		    this.FinalResult.addResult(i + 1, pageResult);
-		}
 
 		// add the no of items in this page to the total no
 		this.FinalResult.addNoOfItems(noOfItems);
 
+	    }
+
+	    else {
+
+		// go over all the links/pages, parse the webpages 
+		// from all the pages
+
+		for (int i = 0; i < this.allURLs.length; i++) {
+
+		    System.out.println("\nParsing page " + (i + 1) + " ...");
+
+		    String pageResult = this.parser.getParseResult(allURLs[i])
+			    .toString();
+
+		    int noOfItems = this.parser.getNoOfItems();
+		    // add the no of items in this page to the total no
+		    this.FinalResult.addNoOfItems(noOfItems);
+
+		}
 	    }
 
 	    // prints the correct result according to the query
@@ -105,6 +115,8 @@ public class WebCrawler {
 	try {
 
 	    Integer query2Page = null;
+	    // args = new String[1];
+	    // args[0] = "camera";
 
 	    if (args.length > 2 || args.length < 1) {
 		throw new IOException("Incorrect input");

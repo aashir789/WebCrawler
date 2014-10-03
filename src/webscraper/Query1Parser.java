@@ -32,21 +32,21 @@ public class Query1Parser extends PageParserTemplate {
 	    parseResult = new StringBuilder();
 	   
 	    
-	    Document doc = Jsoup.connect(url).timeout(3000).get();
+	    Document doc = Jsoup.connect(url).timeout(2000).get();
 
 	    Elements productElements = doc.select("a.js-product-title");
 
 	    String[] productName = new String[productElements.size()];
 
-	    this.noOfItems = productName.length;
+	    super.noOfItems = productName.length;
 	    
 	    
 	    // return null because we do not need additional info for query1
-	    return null;
+	    return parseResult;
 
 	} catch (IOException e) {
 	    e.printStackTrace();
-	    return null;
+	    return parseResult;
 	}
 
     }

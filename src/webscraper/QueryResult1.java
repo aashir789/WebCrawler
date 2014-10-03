@@ -14,7 +14,7 @@ public class QueryResult1 extends Result {
     public void printResult(){
 	int number = super.totalItems;
 	
-	System.out.println("The total items matching the query are: "+number);
+	System.out.println("\nThe total items matching the query are: "+number);
 	
     }
     

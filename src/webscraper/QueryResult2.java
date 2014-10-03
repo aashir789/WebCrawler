@@ -16,7 +16,7 @@ public class QueryResult2 extends Result {
     public void printResult(){
 	HashMap<Integer,String> map = super.resultMap;
 	String resultString = map.get(super.pageQuery);
-	System.out.println("The result of the query on page no "+super.pageQuery+" is:\n"+resultString);
+	System.out.println("\nThe result of the query on page no "+super.pageQuery+" is:\n"+resultString);
 	
     }
     
