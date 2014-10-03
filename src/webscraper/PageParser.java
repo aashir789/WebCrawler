@@ -32,7 +32,7 @@ public class PageParser {
 
 	    parseResult = new StringBuilder();
 	   
-
+	    
 	    Document doc = Jsoup.connect(url).get();
 
 	    Elements productElements = doc.select("a.js-product-title");

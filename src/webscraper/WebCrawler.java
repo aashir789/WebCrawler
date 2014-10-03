@@ -40,7 +40,7 @@ public class WebCrawler {
 	
 	this.startURL = url;
 	this.parser = new PageParser();
-	
+	this.FinalResult = new Result();
 	
 	
 	

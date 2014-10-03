@@ -21,8 +21,18 @@ public class Result {
      * 
      */
 
-    private HashMap<Integer,String> resultMap;
-    private int totalItems; 
+    protected HashMap<Integer,String> resultMap;
+    protected int totalItems; 
+    protected int pageQuery;
+    
+    public Result(){
+	this.resultMap = new HashMap<Integer,String>();
+	}
+    
+    public Result(int pageNo){
+	this.pageQuery = pageNo;
+    }
+    
     
     
     public void addResult(int key, String value){
