@@ -96,9 +96,9 @@ public class WebCrawler {
 
 	    // try to parse the last digit as an integer to check if its query2
 
-	     args = new String[2];
-	    args[0] = "camera";
-		    args[1]= "2";
+	    // args = new String[2];
+	    //args[0] = "camera";
+	    //    args[1]= "2";
 
 	    String query;
 	    Integer queryPage = null;

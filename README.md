@@ -18,6 +18,8 @@ The program uses the following assumptions:
 2. It is assumed that the search engine of the site will give ALL and RELEVANT items related to a keyword.
 3. In order to make the program faster, its assumed that the items on the search page of walmart are always 16.
 
+The WebCrawlerClassDiagram.jpg coudl be useful for a architectural view of the program. 
+
 
 PS: I would be more than happy to receive any type of feedback on the submission.
 

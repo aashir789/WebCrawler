@@ -17,8 +17,8 @@ public class Query2Result extends Result {
 	HashMap<Integer,String> map = super.resultMap;
 	int i= this.getPageQuery();
 	String resultString = map.get(i);
-	System.out.println("\nThe total no of results are:" +this.totalItems);
-	System.out.println("\nThe result of the query on page no "+super.pageQuery+" is:\n"+resultString);
+	System.out.println("\nThe total no of results on page "+i+" are:" +this.totalItems);
+	System.out.println("The result of the query on page no "+super.pageQuery+" is:\n"+resultString);
 	
     }
     
