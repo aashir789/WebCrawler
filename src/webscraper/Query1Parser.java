@@ -1,14 +1,13 @@
 package webscraper;
 
 import java.io.IOException;
-import java.util.HashSet;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
-public class PageParser {
+public class Query1Parser extends PageParserTemplate {
     /*
      * Author: Aashir Gajjar
      * 
@@ -33,62 +32,25 @@ public class PageParser {
 	    parseResult = new StringBuilder();
 	   
 	    
-	    Document doc = Jsoup.connect(url).get();
+	    Document doc = Jsoup.connect(url).timeout(3000).get();
 
 	    Elements productElements = doc.select("a.js-product-title");
 
 	    String[] productName = new String[productElements.size()];
 
-	    int i = 0;
-
-	    for (Element e : productElements) {
-
-		productName[i] = e.text();
-		i++;
-	    }
-
-	    Elements priceElements = doc.select("div.item-price-container");
-
-	    String[] productPrice = new String[priceElements.size()];
-
-	    int j = 0;
-
-	    for (Element e : priceElements) {
-
-		productPrice[j] = e.text();
-		j++;
-	    }
-	    
-	    for (int k = 0; k < productName.length; k++) {
-		
-		StringBuilder tempString = new StringBuilder() ;
-		
-		tempString.append("Product Name: ");
-		tempString.append(productName[k]);
-		tempString.append("\t");
-		tempString.append("Price: ");
-		tempString.append(productPrice[k]);
-		tempString.append("\n");
-		
-		parseResult.append(tempString);
-		
-
-	    }
-
 	    this.noOfItems = productName.length;
-
-	    return this.parseResult;
+	    
+	    
+	    // return null because we do not need additional info for query1
+	    return null;
 
 	} catch (IOException e) {
 	    e.printStackTrace();
-	    return this.parseResult;
+	    return null;
 	}
 
     }
 
-    public int getNoOfItems() {
-	// check if the no is valid
-	return this.noOfItems;
-    }
+  
 
 }

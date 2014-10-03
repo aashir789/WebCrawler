@@ -58,6 +58,8 @@ public class LinkGrabber {
 	    // intialize an array of urls (Strings) for all the pages to be
 	    // parsed
 
+	    System.out.print("\nThe total pages with the result are: " +totalPages);
+	    
 	    this.linkStrings = new String[totalPages];
 
 	    for (int i = 0; i < totalPages; i++) {
@@ -80,16 +82,5 @@ public class LinkGrabber {
 
     }
 
-    public static void main(String[] args) throws IOException, Exception {
-	try {
-
-	    LinkGrabber gra = new LinkGrabber("http://www.walmart.com");
-
-	    gra.getURLs();
-
-	} catch (IOException e) {
-	    e.printStackTrace();
-	}
-    }
 
 }

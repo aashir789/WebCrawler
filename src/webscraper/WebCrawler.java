@@ -26,32 +26,33 @@ public class WebCrawler {
     private Result FinalResult;
     private String currentURL;
     private String startURL;
-    private PageParser parser;
+    private PageParserTemplate parser;
     private LinkGrabber grabber;
     private String[] allURLs;
     private String queryString;
-    
-    
+    private Integer queryPage;
 
     /*
      * The constructor initializes all the private fields to default values
      */
-    public WebCrawler(String url, boolean query2) {
-	
+    public WebCrawler(String url, Integer query2Page) {
+
 	this.startURL = url;
-	this.parser = new PageParser();
-	this.FinalResult = new Result();
-	
-	
-	
-	if(query2){
+
+	// set correct subclasses according to the query
+
+	if (query2Page != null) {
+
+	    this.queryPage = query2Page;
 	    this.FinalResult = new QueryResult2();
-	}
-	else{
+	    this.FinalResult.setPageQuery(this.queryPage);
+	    this.parser = new Query2Parser();
+
+	} else {
 	    this.FinalResult = new QueryResult1();
+	    this.parser = new Query1Parser();
 	}
-	
-	
+
     }
 
     public void run(String query) throws IOException {
@@ -59,36 +60,38 @@ public class WebCrawler {
 
 	    // form the initial query url by combinig startURL and query
 	    this.queryString = query;
-	    this.currentURL = this.startURL+URLEncoder.encode(this.queryString, "UTF-8");
+	    this.currentURL = this.startURL
+		    + URLEncoder.encode(this.queryString, "UTF-8");
 
 	    // get all links to all the pages found related to the query
 	    this.grabber = new LinkGrabber(this.currentURL);
 	    this.allURLs = grabber.getURLs();
 
-	    // go over all the links/pages, parse the webpage and append the result
+	    // go over all the links/pages, parse the webpage and append the
+	    // result
 	    // from all the pages
 
 	    for (int i = 0; i < this.allURLs.length; i++) {
 
 		String pageResult = this.parser.getParseResult(allURLs[i])
 			.toString();
+
 		int noOfItems = this.parser.getNoOfItems();
 
-		
-		// i+1 represents the page no
-		this.FinalResult.addResult(i + 1, pageResult); 
-		
-		// add the no of items in this page to the total no 
+		// add to the result obj if the page result is not null
+		if (pageResult != null) {
+
+		    // i+1 represents the page no
+		    this.FinalResult.addResult(i + 1, pageResult);
+		}
+
+		// add the no of items in this page to the total no
 		this.FinalResult.addNoOfItems(noOfItems);
 
 	    }
-	    
-	    
-	   // prints the correct result according to the query  
-	   this.FinalResult.printResult(); 
-	    
-	    
-	    
+
+	    // prints the correct result according to the query
+	    this.FinalResult.printResult();
 
 	} catch (IOException e) {
 	    e.printStackTrace();
@@ -99,27 +102,24 @@ public class WebCrawler {
     }
 
     public static void main(String[] args) {
-	try{
-	
-	    
-	    
-	boolean isQuery2 = false;    
-	    
-	if (args.length>1){
-	    isQuery2= true;
-	}
-	
-	
-	// do something to filter  arguments
-	    
-	    
-	String queryString = "camera";
-	String startURL = "http://www.walmart.com/search/?query=";
+	try {
 
-	WebCrawler crawler = new WebCrawler(startURL,isQuery2);
-	crawler.run(queryString);
-	}
-	catch(Exception e){
+	    Integer query2Page = null;
+
+	    if (args.length > 2 || args.length < 1) {
+		throw new IOException("Incorrect input");
+	    }
+
+	    if (args.length == 2) {
+		query2Page = Integer.parseInt(args[1]);
+	    }
+
+	    String queryString = args[0];
+	    String startURL = "http://www.walmart.com/search/?query=";
+
+	    WebCrawler crawler = new WebCrawler(startURL, query2Page);
+	    crawler.run(queryString);
+	} catch (Exception e) {
 	    e.printStackTrace();
 	}
     }

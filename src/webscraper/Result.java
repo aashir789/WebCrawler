@@ -29,10 +29,10 @@ public class Result {
 	this.resultMap = new HashMap<Integer,String>();
 	}
     
-    public Result(int pageNo){
-	this.pageQuery = pageNo;
+
+    public void setPageQuery(int i){
+	this.pageQuery = i; 
     }
-    
     
     
     public void addResult(int key, String value){
