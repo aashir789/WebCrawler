@@ -1,6 +1,9 @@
 package webscraper;
 
 import java.util.HashSet;
+import java.io.IOException;
+import java.net.URLEncoder;
+
 
 public class WebCrawler {
     /*
@@ -35,30 +38,39 @@ public class WebCrawler {
      */
     public WebCrawler(String url) {
 
-	this.currentURL = url;
+	this.startURL = url;
+	
+	
+	
+	
 
     }
 
-    public void run(String query) {
-
+    public void run(String query) throws IOException {
+	try{
+	
+	// form the initial query url    
 	this.queryString = query;
-
-	// put the url in visited list
-	// enqueue the url
+	this.currentURL = URLEncoder.encode(this.queryString, "UTF-8");
 	
-
-	//loop:
+	// get all links to all the pages found related to the query
 	
-	// dequeue url
+	this.grabber = new LinkGrabber(this.currentURL);
 	
-	// fetch data from parser with current url
 	
-	// fetch other links from grabber and add only new urls to queue only if they are
-	// not in the visited list
 	
-	// fetch data from parser and append result to the existing result object 
 	
-	// go to "loop:"
+	
+	
+	
+	
+	
+	
+	}
+	catch (IOException e){
+	    e.printStackTrace();
+	}
+	
 	
 	
 	
@@ -67,8 +79,8 @@ public class WebCrawler {
 
     public static void main(String[] args) {
 
-	String queryString = "";
-	String startURL = "http://walmart.com";
+	String queryString = "camera";
+	String startURL = "http://www.walmart.com/search/?query=";
 
 	WebCrawler crawler = new WebCrawler(startURL);
 	crawler.run(queryString);

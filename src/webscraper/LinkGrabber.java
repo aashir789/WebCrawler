@@ -2,6 +2,9 @@ package webscraper;
 
 import java.io.IOException;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -13,19 +16,16 @@ public class LinkGrabber {
      * 
      * Date: 10/2/14
      * 
-     * This class helps in grabbing all the urls present on an HTML page. It
-     * uses some standard functions of the Jsoup library for parsing through
-     * HTML
+     * This class helps in grabbing all the urls which represent all the search pages releated to the query string
      * 
      * The class has one public funtion that can be used:
      * 
-     * getURLs(): HashSet<String> It uses the url with which the class was
-     * instantiated and returns a HashSet of Strings which are basically all the
-     * unique urls present on the HTML
+     * getURLs(): LinkedList<String> It uses the url of the first search page given the query element and returns the links to all the pages
+     * that contains the search items.
      */
 
     private String url;
-    private HashSet<String> linkStrings = new HashSet<String>();
+    private String[] linkStrings;
 
     /* Class constructor */
 
@@ -35,21 +35,37 @@ public class LinkGrabber {
 
     }
 
-    public HashSet<String> getURLs() throws IOException, Exception {
+    public String[] getURLs() throws IOException, Exception {
 	try {
+	    // Test url
+	    
+	    String url = "http://www.walmart.com/search/?query=camera";
 
-	    String url = "http://walmart.com";
+	    // parse the first search page to get the total no of pages for
+	    // which the query item is listed
 
 	    Document doc = Jsoup.connect(url).get();
-	    Elements links = doc.select("a[href]");
+	    String pageNumbers = doc.select("ul.paginator-list").text();
 
-	    for (Element link : links) {
-		
-		if (!linkStrings.contains(link.attr("abs:href"))) {
-		
-		    linkStrings.add(link.attr("abs:href"));
-		}
+	    // split the numbers on space and get the last number to indentify
+	    // the number of search results
+
+	    String[] pageNumberSplit = pageNumbers.split(" ");
+	    int lastElementIndex = pageNumberSplit.length - 1;
+	    int totalPages = Integer
+		    .parseInt(pageNumberSplit[lastElementIndex]);
+
+	    // intialize an array of urls (Strings) for all the pages to be
+	    // parsed
+
+	    this.linkStrings = new String[totalPages];
+
+	    for (int i = 0; i < totalPages; i++) {
+
+		linkStrings[i] = url + "&page=" + (i+1);
+
 	    }
+
 	    return linkStrings;
 
 	} catch (IOException e) {
