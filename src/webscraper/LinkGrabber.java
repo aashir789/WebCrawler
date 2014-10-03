@@ -39,7 +39,7 @@ public class LinkGrabber {
 	try {
 	    // Test url
 	    
-	    String url = "http://www.walmart.com/search/?query=camera";
+	    //String url = "http://www.walmart.com/search/?query=camera";
 
 	    // parse the first search page to get the total no of pages for
 	    // which the query item is listed

@@ -39,6 +39,10 @@ public class WebCrawler {
     public WebCrawler(String url, boolean query2) {
 	
 	this.startURL = url;
+	this.parser = new PageParser();
+	
+	
+	
 	
 	if(query2){
 	    this.FinalResult = new QueryResult2();
@@ -53,16 +57,15 @@ public class WebCrawler {
     public void run(String query) throws IOException {
 	try {
 
-	    // form the initial query url
+	    // form the initial query url by combinig startURL and query
 	    this.queryString = query;
-	    this.currentURL = URLEncoder.encode(this.queryString, "UTF-8");
+	    this.currentURL = this.startURL+URLEncoder.encode(this.queryString, "UTF-8");
 
 	    // get all links to all the pages found related to the query
-
 	    this.grabber = new LinkGrabber(this.currentURL);
 	    this.allURLs = grabber.getURLs();
 
-	    // go over all the links, parse the webpage and append the result
+	    // go over all the links/pages, parse the webpage and append the result
 	    // from all the pages
 
 	    for (int i = 0; i < this.allURLs.length; i++) {
@@ -71,8 +74,11 @@ public class WebCrawler {
 			.toString();
 		int noOfItems = this.parser.getNoOfItems();
 
-		this.FinalResult.addResult(i + 1, pageResult); // i+1 represents
-							       // the page no
+		
+		// i+1 represents the page no
+		this.FinalResult.addResult(i + 1, pageResult); 
+		
+		// add the no of items in this page to the total no 
 		this.FinalResult.addNoOfItems(noOfItems);
 
 	    }
