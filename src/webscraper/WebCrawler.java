@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.io.IOException;
 import java.net.URLEncoder;
 
+import javax.management.Query;
+
 public class WebCrawler {
     /*
      * Author: Aashir Gajjar
@@ -55,85 +57,124 @@ public class WebCrawler {
 
     }
 
-    public void run(String query) throws IOException {
-	try {
+    public void run(String query) throws IOException, GenericSearchException,
+	    QueryPageOutOfBoundsException {
 
-	    // form the initial query url by combinig startURL and query
-	    this.queryString = query;
-	    this.currentURL = this.startURL
-		    + URLEncoder.encode(this.queryString, "UTF-8");
+	// form the initial query url by combinig startURL and query
+	this.queryString = query;
+	this.currentURL = this.startURL
+		+ URLEncoder.encode(this.queryString, "UTF-8");
 
-	    // get all links to all the pages found related to the query
-	    this.grabber = new LinkGrabber(this.currentURL);
-	    this.allURLs = grabber.getURLs();
+	// get all links to all the pages found related to the query
+	this.grabber = new LinkGrabber(this.currentURL);
+	this.allURLs = grabber.getURLs();
 
-	    if (this.parser instanceof Query2Parser) {
+	int totalPages = this.allURLs.length;
+	
+	
+	// check if the query is 1 or 2
+	
+	
+	if (this.parser instanceof Query2Parser) {
 
-		String pageResult = this.parser.getParseResult(
-			allURLs[this.queryPage - 1]).toString();
+	    if (this.queryPage > totalPages) {
 
-		this.FinalResult.addResult(this.queryPage, pageResult);
-
-		int noOfItems = this.parser.getNoOfItems();
-
-		// add the no of items in this page to the total no
-		this.FinalResult.addNoOfItems(noOfItems);
-
+		throw new QueryPageOutOfBoundsException(this.queryPage,
+			totalPages);
 	    }
 
-	    else {
+	    String pageResult = this.parser.getParseResult(
+		    allURLs[this.queryPage - 1]).toString();
 
-		// go over all the links/pages, parse the webpages 
-		// from all the pages
+	    this.FinalResult.addResult(this.queryPage, pageResult);
 
-		for (int i = 0; i < this.allURLs.length; i++) {
+	    int noOfItems = this.parser.getNoOfItems();
 
-		    System.out.println("\nParsing page " + (i + 1) + " ...");
+	    // add the no of items in this page to the total no
+	    this.FinalResult.addNoOfItems(noOfItems);
 
-		    String pageResult = this.parser.getParseResult(allURLs[i])
-			    .toString();
-
-		    int noOfItems = this.parser.getNoOfItems();
-		    // add the no of items in this page to the total no
-		    this.FinalResult.addNoOfItems(noOfItems);
-
-		}
-	    }
-
-	    // prints the correct result according to the query
-	    this.FinalResult.printResult();
-
-	} catch (IOException e) {
-	    e.printStackTrace();
-	} catch (Exception ex) {
-	    ex.printStackTrace();
 	}
+
+	else {
+
+	    // If the query is query1 for only the total no of pages
+	    // only check the last items on last page and
+
+	    System.out.print("\nParsing page " + totalPages + " ...");
+
+	    String pageResult = this.parser.getParseResult(
+		    allURLs[totalPages - 1]).toString();
+
+	    int iemsOnLastPage = this.parser.getNoOfItems();
+
+	    // the total items are 16*(totalPages-1) + items on last page
+	    int totaItems = 16 * (totalPages - 1) + iemsOnLastPage;
+
+	    this.FinalResult.addNoOfItems(totaItems);
+
+	}
+
+	// prints the correct result according to the query
+	this.FinalResult.printResult();
+
+    }
+
+    public static String mergeArrayOfStrings(String[] str, int length) {
+	StringBuilder builder = new StringBuilder();
+	int count = 0;
+
+	for (String s : str) {
+	    if (count == length) {
+		break;
+	    }
+
+	    builder.append(s);
+	    builder.append(" ");
+	    count++;
+	}
+	return builder.toString();
 
     }
 
     public static void main(String[] args) {
 	try {
 
-	    Integer query2Page = null;
-	    // args = new String[1];
-	    // args[0] = "camera";
+	    // try to parse the last digit as an integer to check if its query2
+	    String query;
+	    Integer queryPage = null;
+	    try {
+		queryPage = Integer.parseInt(args[args.length - 1]);
+		query = mergeArrayOfStrings(args, args.length - 1);
+		System.out.println("\nEntered a string with page no: "
+			+ queryPage
+			+ ". Running query2 to search detailed results");
 
-	    if (args.length > 2 || args.length < 1) {
-		throw new IOException("Incorrect input");
+	    } catch (NumberFormatException ne) {
+		System.out
+			.println("\nEntered a string only. Running query1 to search the no of results");
+		query = mergeArrayOfStrings(args, args.length);
 	    }
 
-	    if (args.length == 2) {
-		query2Page = Integer.parseInt(args[1]);
-	    }
-
-	    String queryString = args[0];
+	    System.out.println("\nQuery String is: " + query);
 	    String startURL = "http://www.walmart.com/search/?query=";
 
-	    WebCrawler crawler = new WebCrawler(startURL, query2Page);
-	    crawler.run(queryString);
+	    WebCrawler crawler = new WebCrawler(startURL, queryPage);
+	    crawler.run(query);
 	} catch (Exception e) {
-	    e.printStackTrace();
+	    if (e instanceof GenericSearchException) {
+		((GenericSearchException) e).print();
+	    } else if (e instanceof QueryPageOutOfBoundsException) {
+		((QueryPageOutOfBoundsException) e).print();
+	    } else if (e instanceof IOException) {
+		System.out
+			.println("\nError: The connection might have timed out. Please try again");
+		e.printStackTrace();
+
+	    } else {
+		e.printStackTrace();
+	    }
 	}
+
     }
 
 }

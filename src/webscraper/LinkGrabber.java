@@ -35,7 +35,7 @@ public class LinkGrabber {
 
     }
 
-    public String[] getURLs() throws IOException, Exception {
+    public String[] getURLs() throws IOException, GenericSearchException {
 	try {
 	    // Test url
 	    
@@ -43,8 +43,17 @@ public class LinkGrabber {
 
 	    // parse the first search page to get the total no of pages for
 	    // which the query item is listed
-
+	   
 	    Document doc = Jsoup.connect(url).get();
+	    
+	    Elements searchContainers = doc.select("div#search-container");
+	    if(searchContainers.size()==0){
+		
+		throw new GenericSearchException(this.url);
+		
+	    }
+	    
+	    
 	    String pageNumbers = doc.select("ul.paginator-list").text();
 
 	    // split the numbers on space and get the last number to indentify
@@ -74,11 +83,8 @@ public class LinkGrabber {
 	    e.printStackTrace();
 	    linkStrings = null;
 	    return linkStrings;
-	} catch (Exception re) {
-	    re.printStackTrace();
-	    linkStrings = null;
-	    return linkStrings;
 	}
+
 
     }
 

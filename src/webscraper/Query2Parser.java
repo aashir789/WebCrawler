@@ -21,9 +21,9 @@ public class Query2Parser extends PageParserTemplate {
      */
 
     private StringBuilder parseResult;
-    
+    private int PageNo;
 
-    public StringBuilder getParseResult(String myurl) throws IOException {
+    public StringBuilder getParseResult(String myurl) {
 	try {
 	    String url = myurl;
 
@@ -56,7 +56,7 @@ public class Query2Parser extends PageParserTemplate {
 	    }
 
 	    for (int k = 0; k < productName.length; k++) {
-
+		
 		StringBuilder tempString = new StringBuilder();
 		
 		tempString.append("\n");

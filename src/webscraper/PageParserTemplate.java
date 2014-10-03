@@ -8,7 +8,7 @@ import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 import org.jsoup.nodes.Element;
 
-public class PageParserTemplate {
+abstract public class PageParserTemplate {
     /*
      * Author: Aashir Gajjar
      * 
@@ -26,10 +26,7 @@ public class PageParserTemplate {
     
     protected int noOfItems;
 
-    public StringBuilder getParseResult(String myurl) throws IOException {
-	
-	return null;
-    }
+    abstract public StringBuilder getParseResult(String myurl) ;
 
     public int getNoOfItems() {
 	// check if the no is valid

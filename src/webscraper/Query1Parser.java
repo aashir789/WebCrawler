@@ -25,14 +25,14 @@ public class Query1Parser extends PageParserTemplate {
     private StringBuilder parseResult;
     private int noOfItems;
 
-    public StringBuilder getParseResult(String myurl) throws IOException {
+    public StringBuilder getParseResult(String myurl)  {
 	try {
 	    String url = myurl;
 
 	    parseResult = new StringBuilder();
 	   
 	    
-	    Document doc = Jsoup.connect(url).timeout(2000).get();
+	    Document doc = Jsoup.connect(url).timeout(3000).get();
 
 	    Elements productElements = doc.select("a.js-product-title");
 
