@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.io.IOException;
 import java.net.URLEncoder;
 
-
 public class WebCrawler {
     /*
      * Author: Aashir Gajjar
@@ -29,62 +28,94 @@ public class WebCrawler {
     private String startURL;
     private PageParser parser;
     private LinkGrabber grabber;
-    private HashSet<String> visitedURLs;
-    private HashSet<String> newURLs;
+    private String[] allURLs;
     private String queryString;
+    
+    
 
     /*
      * The constructor initializes all the private fields to default values
      */
-    public WebCrawler(String url) {
-
+    public WebCrawler(String url, boolean query2) {
+	
 	this.startURL = url;
 	
+	if(query2){
+	    this.FinalResult = new QueryResult2();
+	}
+	else{
+	    this.FinalResult = new QueryResult1();
+	}
 	
 	
-	
-
     }
 
     public void run(String query) throws IOException {
-	try{
-	
-	// form the initial query url    
-	this.queryString = query;
-	this.currentURL = URLEncoder.encode(this.queryString, "UTF-8");
-	
-	// get all links to all the pages found related to the query
-	
-	this.grabber = new LinkGrabber(this.currentURL);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	}
-	catch (IOException e){
+	try {
+
+	    // form the initial query url
+	    this.queryString = query;
+	    this.currentURL = URLEncoder.encode(this.queryString, "UTF-8");
+
+	    // get all links to all the pages found related to the query
+
+	    this.grabber = new LinkGrabber(this.currentURL);
+	    this.allURLs = grabber.getURLs();
+
+	    // go over all the links, parse the webpage and append the result
+	    // from all the pages
+
+	    for (int i = 0; i < this.allURLs.length; i++) {
+
+		String pageResult = this.parser.getParseResult(allURLs[i])
+			.toString();
+		int noOfItems = this.parser.getNoOfItems();
+
+		this.FinalResult.addResult(i + 1, pageResult); // i+1 represents
+							       // the page no
+		this.FinalResult.addNoOfItems(noOfItems);
+
+	    }
+	    
+	    
+	   // prints the correct result according to the query  
+	   this.FinalResult.printResult(); 
+	    
+	    
+	    
+
+	} catch (IOException e) {
 	    e.printStackTrace();
+	} catch (Exception ex) {
+	    ex.printStackTrace();
 	}
-	
-	
-	
-	
 
     }
 
     public static void main(String[] args) {
-
+	try{
+	
+	    
+	    
+	boolean isQuery2 = false;    
+	    
+	if (args.length>1){
+	    isQuery2= true;
+	}
+	
+	
+	// do something to filter  arguments
+	    
+	    
 	String queryString = "camera";
 	String startURL = "http://www.walmart.com/search/?query=";
 
-	WebCrawler crawler = new WebCrawler(startURL);
+	WebCrawler crawler = new WebCrawler(startURL,isQuery2);
 	crawler.run(queryString);
-
+	}
+	catch(Exception e){
+	    e.printStackTrace();
+	}
     }
 
 }

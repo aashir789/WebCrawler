@@ -17,67 +17,59 @@ public class PageParser {
      * 
      * The public methods of this class are:
      * 
-     * getParseResult():Result 
-     * 		This method returns a HashMap<String> object which
-     * contains the information of the full name of which the query string is a
-     * sub-part of and 
+     * getParseResult():StringBuilder This method returns a StringBuilder object
+     * which contains the information of the full name of the item with its price and 
+     * all the differnent names a seperated by a new line
      */
 
-    private String url;
-    private HashSet<String> parseResult;
+    private StringBuilder parseResult;
+    private int noOfItems;
     
-    
-    public PageParser(String myurl){
-	
-	this.url = myurl;
-	
-    }
-    
-    public HashSet<String> getPareseResult() throws IOException{
-	try{
+    public StringBuilder getParseResult(String myurl) throws IOException {
+	try {
+	    String url = myurl;
+	 
 	    
-	    this.parseResult = new HashSet<String>();
+	    parseResult = new StringBuilder();
+	    StringBuilder tempString = new StringBuilder();
+
 	    
 	    Document doc = Jsoup.connect(url).get();
-	    String productName = doc.select("h1.productTitle").text(); // take only the text from the body
-	    String productPriceDollars = doc.select("span.bigPriceText1").text(); // take only the text from the body
-	    String productPriceCents = doc.select("span.smallPriceText1").text(); // take only the text from the body
 	    
+	 
+	    String productName = doc.select("a.js-product-title").text(); 
+	    String[] productNameSplit = productName.split(" ");
+
+	    String productPrice = doc.select("span.price price-display").text(); 
+	    String[] productPriceSplit = productPrice.split(" ");
+
+	    for (int i = 0; i < productPriceSplit.length; i++) {
+
+		tempString.append("Product Name: ");
+		tempString.append(productNameSplit[i]);
+		tempString.append("\t");
+		tempString.append("Price: ");
+		tempString.append(productPriceSplit[i]);
+		tempString.append("\n");
+		parseResult.append(tempString);
+
+	    }
 	    
-	    
-	    // if product name and price are not null, add it to the result  
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
-	    
+	   this.noOfItems = productNameSplit.length;
+
 	    return this.parseResult;
-		    
-	}
-	catch(IOException e){
+
+	} catch (IOException e) {
 	    e.printStackTrace();
 	    return this.parseResult;
 	}
-	
+
     }
     
     
-    public static void main(String[] Args) throws IOException{
-	try{
-	PageParser parser = new PageParser("http://www.walmart.com/ip/Nikon-Silver-COOLPIX-L27-Digital-Camera-and-8GB-Memory-Card-Value-Bundle/31033089");
-	
-	parser.getPareseResult();
-	}
-	catch(IOException ex){
-	    ex.printStackTrace();
-	    
-	}
-	
+    public int getNoOfItems(){
+	// check if the no is valid
+	return this.noOfItems;
     }
-    
-	
+
 }
