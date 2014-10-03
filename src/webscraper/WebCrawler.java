@@ -46,16 +46,19 @@ public class WebCrawler {
 	// put the url in visited list
 	// enqueue the url
 	
-	// dequeue url
 
+	//loop:
+	
+	// dequeue url
+	
 	// fetch data from parser with current url
 	
 	// fetch other links from grabber and add only new urls to queue only if they are
 	// not in the visited list
 	
-	//fetch data from parser and append to the existing result object 
+	// fetch data from parser and append result to the existing result object 
 	
-	
+	// go to "loop:"
 	
 	
 	
